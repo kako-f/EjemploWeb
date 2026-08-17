@@ -1,18 +1,72 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clase 1 Programación web</title>
+    <title>Pagina prueba</title>
+    <link rel="stylesheet" href="ejemplo.css">
 </head>
+
 <body>
-<h1>Hola</h1>
-<button>boton12123123</button>
-<div>
-    <h2>
-        div 2
-    </h2>
-</div>
+    <nav class="navbar">
+        <a href="#" class="logo">MiProyecto</a>
+        <ul class="menu">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+        </ul>
+    </nav>
+
+    <form action="/registro" method="post">
+        <fieldset>
+            <legend>Datos de contacto</legend>
+
+            <label for="nombre">Nombre</label>
+            <input id="nombre" name="nombre" type="text" required>
+
+            <label for="correo">Correo</label>
+            <input id="correo" name="correo" type="email" required>
+            <input type="tel" required pattern="[0-9]{9}" minlength="9" maxlength="9" placeholder="912345678">
+
+            <button type="submit">Enviar</button>
+        </fieldset>
+    </form>
+
+    <p class="success-message">Your changes have been saved!</p>
+    <p id="etiqueta1"> hola curso</p>
+
+    <input type="email">
+
+    <ul class="lista1">
+        <li>primer item</li>
+        <li>segundo item</li>
+        <ul>
+            <li> sub elemento 1</li>
+            <ul>
+                <li> sub elemento 1</li>
+            </ul>
+        </ul>
+        <li>tercero item</li>
+    </ul>
+
+    <div class="caja">
+        <h1>contenedor</h1>
+        <div class="caja1">
+            contenedor 2
+
+        </div>
+        <div class="caja2">
+            contenedor 3
+        </div>
+    </div>
+
+
+
+
+    <button onclick="saludar()">hola</button>
+    <script src="hola.js" defer></script>
+
 
 </body>
+
 </html>

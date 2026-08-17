@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Ejemplo 1 · Contador</title>
+  <style>
+    body {
+      font-family: Arial, Calibri, sans-serif;
+      background: #F4F6F9;
+      color: #16233F;
+      max-width: 500px;
+      margin: 60px auto;
+      text-align: center;
+    }
+
+    h1 {
+      color: #16233F;
+    }
+
+    .valor {
+      font-size: 48px;
+      font-weight: bold;
+      color: #1F8A8C;
+      margin: 20px 0;
+    }
+
+    button {
+      font-size: 16px;
+      padding: 10px 20px;
+      margin: 5px;
+      border: none;
+      border-radius: 6px;
+      color: white;
+      cursor: pointer;
+    }
+
+    #incrementar {
+      background: #1F8A8C;
+    }
+
+    #reiniciar {
+      background: #E8A33D;
+    }
+
+    .nota {
+      margin-top: 30px;
+      font-size: 13px;
+      color: #5B6B7C;
+      font-style: italic;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Ejemplo 1: Contador</h1>
+
+  <!-- El número se actualiza en pantalla; el detalle del cálculo se ve en consola -->
+  <div class="valor" id="pantalla">0</div>
+  <div class="valor" id="resultadoSuma">0</div>
+  <button id="incrementar">Incrementar</button>
+  <button id="reiniciar">Reiniciar</button>
+  <button id="sumar">Sumar</button>
+
+  <p class="nota">Abre la consola del navegador (F12 → Console) para ver los mensajes de log.</p>
+
+  <script>
+    // ---- Variables y funciones (Semana 4) ----
+    let contador = 0;
+    let suma = 0;
+    var pi = 3.1415;
+    const pantalla = document.querySelector("#pantalla");
+    const resultadoSuma = document.querySelector("#resultadoSuma");
+
+    function actualizarPantalla() {
+      pantalla.textContent = contador;
+      resultadoSuma.textContent = suma;
+    }
+
+    function incrementar() {
+      contador = contador + 1;
+      pi = 3;
+      actualizarPantalla();
+      console.log(`Contador: ${contador}`);
+      console.log(pi);
+    }
+
+    function reiniciar() {
+      contador = 0;
+      actualizarPantalla();
+      console.log("Contador reiniciado");
+    }
+
+    function sumar(a, b) {
+      suma = a + b;
+      actualizarPantalla();
+      console.log(suma);
+    }
+    // sumar(2, 3);  // 5
+
+
+    // ---- Conexión de eventos (botones -> funciones) ----
+    document.querySelector("#incrementar").addEventListener("click", incrementar);
+    document.querySelector("#reiniciar").addEventListener("click", reiniciar);
+    document.querySelector("#sumar").addEventListener("click", function () {
+      sumar("x", "z");
+    });
+
+    elemento.addEventListener(
+      "click",             // tipo de evento
+      (evento) => {           // callback
+        console.log("¡Clic!");
+      }
+    );
+
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+#etiqueta1{
+    color: blue;
+};
+
+.success-message {
+  color: green;
+  font-weight: bold;
+}
+
+.caja {
+  display: flex;
+  width: 200px;
+  padding: 20px;
+  margin: 30px;
+  border: 5px solid #028090;
+}
+.caja1 {
+
+  width: 200px;
+  padding: 10vh;
+  margin: 10vh;
+  border: 2px solid red;
+}
+.caja2 {
+
+  width: 200px;
+  padding: 10vh;
+  margin: 10vh;
+  border: 2px solid green;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: aqua;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.menu {
+  display: flex;
+  gap: 24px;
+  background-color: blueviolet;
+}

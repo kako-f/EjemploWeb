@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body { display: flex; justify-content: center; align-items: center; height: 100vh; background: #222; }
+    .eye { width: 100px; height: 100px; background: white; border-radius: 50%; display: flex; justify-content: center; align-items: center; margin: 10px; }
+    .pupil { width: 40px; height: 40px; background: #333; border-radius: 50%; transform: translate(var(--x, 0px), var(--y, 0px)); }
+  </style>
+</head>
+<body>
+
+  <div class="eye"><div class="pupil"></div></div>
+  <div class="eye"><div class="pupil"></div></div>
+
+  <script>
+    const pupils = document.querySelectorAll('.pupil');
+
+    window.addEventListener('mousemove', (e) => {
+      pupils.forEach(pupil => {
+        // Calculate dynamic offset based on mouse position relative to window size
+        const x = (e.clientX / window.innerWidth - 0.5) * 40;
+        const y = (e.clientY / window.innerHeight - 0.5) * 40;
+        
+        // Pass values straight to CSS Variables
+        pupil.style.setProperty('--x', `${x}px`);
+        pupil.style.setProperty('--y', `${y}px`);
+      });
+    });
+  </script>
+</body>
+</html>

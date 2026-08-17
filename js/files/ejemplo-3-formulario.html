@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Ejemplo 3 · Validación de formulario</title>
+  <style>
+    body {
+      font-family: Arial, Calibri, sans-serif;
+      background: #F4F6F9;
+      color: #16233F;
+      max-width: 460px;
+      margin: 60px auto;
+    }
+    h1 { text-align: center; }
+    form {
+      background: white;
+      padding: 25px 30px;
+      border-radius: 10px;
+    }
+    label {
+      display: block;
+      font-weight: bold;
+      margin: 15px 0 5px;
+      font-size: 14px;
+    }
+    input {
+      width: 100%;
+      padding: 8px 10px;
+      border: 1px solid #DCEFEF;
+      border-radius: 6px;
+      font-size: 14px;
+      box-sizing: border-box;
+    }
+    button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 10px;
+      background: #1F8A8C;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 15px;
+      cursor: pointer;
+    }
+    #aviso {
+      margin-top: 15px;
+      padding: 10px;
+      border-radius: 6px;
+      font-size: 13px;
+      display: none;
+    }
+    #aviso.error {
+      display: block;
+      background: #FBEBD3;
+      color: #7a4a00;
+    }
+    #aviso.exito {
+      display: block;
+      background: #DCEFEF;
+      color: #135f5f;
+    }
+    .nota {
+      margin-top: 20px;
+      font-size: 13px;
+      color: #5B6B7C;
+      font-style: italic;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Contacto</h1>
+
+  <form id="contacto">
+    <label for="nombre">Nombre</label>
+    <input type="text" id="nombre" />
+
+    <label for="email">Correo</label>
+    <input type="text" id="email" />
+
+    <button type="submit">Enviar</button>
+
+    <div id="aviso"></div>
+  </form>
+
+  <p class="nota">Abre la consola del navegador (F12 → Console) para ver los mensajes de log.</p>
+
+  <script>
+    // ---- Selección de elementos del DOM ----
+    const form = document.querySelector("#contacto");
+    const aviso = document.querySelector("#aviso");
+
+    form.addEventListener("submit", (evento) => {
+      evento.preventDefault(); // evita que la página se recargue
+
+      const nombre = document.querySelector("#nombre").value.trim();
+      const email = document.querySelector("#email").value.trim();
+
+      // ---- Validación con acumulación de errores ----
+      const errores = [];
+      if (nombre === "") errores.push("El nombre es obligatorio");
+      if (!email.includes("@") || !email.includes(".")) errores.push("Correo inválido");
+
+      if (errores.length > 0) {
+        aviso.textContent = errores.join(" · ");
+        aviso.className = "error";
+        console.log("Errores de validación:", errores);
+        return;
+      }
+
+      aviso.textContent = `¡Gracias, ${nombre}! Te contactaremos a ${email}.`;
+      aviso.className = "exito";
+      console.log("Formulario enviado correctamente:", { nombre, email });
+    });
+  </script>
+
+</body>
+</html>
